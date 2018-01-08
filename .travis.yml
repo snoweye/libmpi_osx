@@ -1,0 +1,24 @@
+# Sample .travis.yml
+
+language: c
+
+os:
+  - osx
+
+before_install:
+  - 
+
+install: true
+
+script:
+  - curl -OL https://raw.githubusercontent.com/Homebrew/install/master/install
+  - brew install open-mpi
+  - mpiexec --version
+  - mpiexec -np 2 hostname
+
+notifications:
+  email:
+    on_success: no
+    on_failure: no
+
+sudo: required
