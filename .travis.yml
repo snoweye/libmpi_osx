@@ -6,17 +6,21 @@ os:
   - osx
 
 before_install:
+
+install: true
+
+### Remove c++ link first before install gcc because of conflicts
+### between TRAVIS and brew
+script:
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - rm -rf /usr/local/include/c++
   - brew install gcc
   - brew install open-mpi
-
-install: true
-
-script:
   - mpiexec --version
-  - mpiexec --showme:incdirs
-  - mpiexec --showme:libdirs
+  - mpicc -showme:incdirs
+  - mpicc -showme:libdirs
+  - mpicc -showme:compile
+  - mpicc -showme:link
   - mpiexec -np 2 hostname
 
 notifications:
