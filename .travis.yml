@@ -6,14 +6,14 @@ os:
   - osx
 
 before_install:
-  - 
+  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew update
+  - brew uninstall gcc
+  - brew install open-mpi
 
 install: true
 
 script:
-  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  - brew install gcc
-  - brew install open-mpi
   - mpiexec --version
   - mpiexec --showme:incdirs
   - mpiexec --showme:libdirs
