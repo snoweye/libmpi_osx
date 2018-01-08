@@ -11,7 +11,7 @@ before_install:
 install: true
 
 script:
-  #- curl -OL https://raw.githubusercontent.com/Homebrew/install/master/install
+  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew install open-mpi
   - mpiexec --version
   - mpiexec --showme:incdirs
