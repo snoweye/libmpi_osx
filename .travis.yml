@@ -7,10 +7,8 @@ os:
 
 before_install:
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - rm -rf /usr/local/include/c++
   - brew install gcc
-  - rm /usr/local/include/c++
-  - brew link --overwrite gcc
-  - brew link --overwrite --dry-run gcc
   - brew install open-mpi
 
 install: true
