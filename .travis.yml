@@ -14,6 +14,8 @@ script:
   - curl -OL https://raw.githubusercontent.com/Homebrew/install/master/install
   - brew install open-mpi
   - mpiexec --version
+  - mpiexec --showme:incdirs
+  - mpiexec --showme:libdirs
   - mpiexec -np 2 hostname
 
 notifications:
